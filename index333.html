@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our 3 Years ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    background: black;
+    overflow-y: auto;
+}
+
+/* 💌 Content */
+.content {
+    margin: 100px auto;
+    width: 90%;
+    max-width: 600px;
+    background: rgba(0,0,0,0.6);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* 📸 Center Image */
+.main-img {
+    width: 100%;
+    max-width: 400px;   /* control size */
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+
+.main-img:hover {
+    transform: scale(1.03);
+}
+
+/* ⌨️ Typing text */
+#typedText {
+    font-size: 18px;
+    white-space: pre-line;
+}
+
+/* ▶️ Button */
+.play-btn {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #ff4d6d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff4d6d;
+    transition: 0.3s;
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+}
+
+.spin {
+    animation: spin 1s linear;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* ❤️ Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    color: #ff4d6d;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 💌 Content -->
+<div class="content">
+    <h1>3 Years With You ❤️</h1>
+
+    <!-- 📸 Your Image -->
+    <img src="pic1.jpeg" class="main-img">
+
+    <p id="typedText"></p>
+
+    <p>Tap the button… this is our song 🎶</p>
+
+    <div class="play-btn" onclick="playMusic(this)">
+        ▶
+    </div>
+</div>
+
+<!-- 🎵 Music -->
+<audio id="music" src="song.mp3"></audio>
+
+<script>
+// ⌨️ Typing text (EDIT THIS 💌)
+const text = `To the Women , I want to spend my whole life WITH ♥️🧬🥳  
+
+A veryyy veryyy happy Anniversary my love ❣️😘. Today 3 years ago where everything started (officially 🌚🌝). It's been 3 years teen saal aapsai pyaar karte hue ho gaye hain mujheeeee omgaadddd 😳. First things first i couldn't have imagined this with anyone else other than YOu missesss🤭. The smile laughter u have bought to me is unimaginable. I love each and every inch(miilimeter) of that smile of yoursss 😍😍.Our love has grown so muchh and everyday it growsss and will always growww❣️. Your beautyyy is unmatched not just looks ( I mean looks mai tho koi competition hi nahi hai tho khairrrr ...💁💁) , the beauty of making every moment special, beauty of handling everything from home to collage to ME(🤐) , beauty of looking so gorgeous how do u manage to do that merekooo bhi baata do yaarrr 🙂🌹. 
+
+
+
+Reflecting back to these 3 years . There have been lots of up's and down's , but one thing that is constant will always be will be our love ♥️ . Na jane kya kya nahi kiye hain isske liye 😂🧿🥹 ham dono ne . Against all odds we are together and always will be 💕🧿. Can't imagine a day without you . It's like 
+
+( " Hum Tere Bin Ab Reh Nehi Sakte
+Tere Bina Kya Wajood Mera,
+Tujhse Juda Gar Ho Jaayenge
+Toh Khud Se Hi Ho Jaayenge Juda") 🥹♥️💕🌹 . 
+
+These are not just lyrics I mean each and every word .  I pray , hamlog hamsaa aasai hi rahe , I want to spend my entire life with you baby . I want to make unforgettable memories 🥹 . I want to cheeris You 😍 , I want to love You♥️ , I want to protect You 💪 , i wanttttt YOU you you and only YOU 🌹💕🧬. This reminds me of 
+
+
+("Kuchh to hai tujhse Raabta
+Kuchh to hai tujhse raabta
+Kaise hum jaanein humein kya pata
+Kuchh to hai tujhse raabta") 💯💯 ,
+So yeah you are my Raabta ❣️
+
+
+So to our  aniversary I want to say ki yaarrrr haar saal aao jaab taak mai Zinda huin(Zauri hai naa aana Bhai 💁🤭😂)  , ye dinn is just a reminder that I took my best decision in life my accepting your love 🤭🥳❤️❤️. How do I express how much I love you it's beyond ♾️ but i would like to give a small glimpse of it on our aniversary ( I love you more than words could ever express I promise to always cherish you, protect you and stand by your side through thick and thin.) A Very Happy Anniversary my Baby girl 💋. Love uuuuuuuuuuuuuuuuuuuu👄♥️🌹😘. 
+
+
+
+
+Every moment with you feels like magic ✨
+Every laugh, every memory — I cherish it all 💖
+
+You are not just my love,
+you are my peace, my happiness, my everything ❤️`;
+
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typedText").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+}
+typeWriter();
+
+// ▶️ Music
+function playMusic(btn) {
+    let music = document.getElementById("music");
+    btn.classList.add("spin");
+
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+
+    setTimeout(() => btn.classList.remove("spin"), 1000);
+}
+
+// ❤️ Hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
